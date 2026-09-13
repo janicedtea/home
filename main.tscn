@@ -1,8 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cavt2rg535cdh"]
+[gd_scene load_steps=4 format=3 uid="uid://cavt2rg535cdh"]
 
 [ext_resource type="PackedScene" uid="uid://b4g2x6vaaa0df" path="res://player_1.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://tjbi8i1h2lc4" path="res://tile.png" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(200, 200)
 
 [node name="main" type="Node2D"]
 
 [node name="player1" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(320, 315)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(323, 427)
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_0xm2m")
