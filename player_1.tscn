@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4g2x6vaaa0df"]
+[gd_scene load_steps=14 format=3 uid="uid://b4g2x6vaaa0df"]
 
 [ext_resource type="Script" uid="uid://dqlakvr8lqheu" path="res://player_1.gd" id="1_qh3su"]
 [ext_resource type="Texture2D" uid="uid://c3l4htpm630q8" path="res://player_spritesheet.png" id="2_buxg0"]
 [ext_resource type="Texture2D" uid="uid://cuolnjy7d6jff" path="res://jump.png" id="3_6736r"]
+[ext_resource type="AudioStream" uid="uid://brqce6q4ej2rw" path="res://jumpsound.mp3" id="4_buxg0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i66ns"]
 atlas = ExtResource("2_buxg0")
@@ -56,11 +57,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"jumping",
-"speed": 10.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qh3su"]
-size = Vector2(150, 130)
+size = Vector2(120, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buxg0"]
+size = Vector2(50, 52)
 
 [node name="player1" type="CharacterBody2D"]
 texture_filter = 1
@@ -69,9 +73,16 @@ script = ExtResource("1_qh3su")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ugj0w")
-animation = &"jumping"
+animation = &"idle_walk"
 autoplay = "idle_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 35)
+position = Vector2(-10, 70)
 shape = SubResource("RectangleShape2D_qh3su")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(25, 14)
+shape = SubResource("RectangleShape2D_buxg0")
+
+[node name="jumpsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_buxg0")

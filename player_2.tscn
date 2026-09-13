@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://cqwnn6ky7b7t7"]
+
+[ext_resource type="Script" uid="uid://ctgsyuwrt0vu2" path="res://player_2.gd" id="1_ufh5k"]
+[ext_resource type="Texture2D" uid="uid://cgsxrk8ddhol" path="res://player_spritesheet-1.png (4).png" id="2_x3sgo"]
+[ext_resource type="Texture2D" uid="uid://bart265x40hw6" path="res://player_spritesheet-1.png (5).png" id="3_ryqyf"]
+[ext_resource type="AudioStream" uid="uid://brqce6q4ej2rw" path="res://jumpsound.mp3" id="4_x3sgo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lhrm"]
+atlas = ExtResource("3_ryqyf")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up5o4"]
+atlas = ExtResource("3_ryqyf")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hlws"]
+atlas = ExtResource("2_x3sgo")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jhxp"]
+atlas = ExtResource("2_x3sgo")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iqoo"]
+atlas = ExtResource("2_x3sgo")
+region = Rect2(0, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jaoer"]
+atlas = ExtResource("2_x3sgo")
+region = Rect2(200, 200, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wh5uk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lhrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up5o4")
+}],
+"loop": true,
+"name": &"idle_walk2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hlws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jhxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iqoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jaoer")
+}],
+"loop": true,
+"name": &"jumping2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehhk3"]
+size = Vector2(100, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt4e1"]
+size = Vector2(50, 61)
+
+[node name="player2" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ufh5k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_wh5uk")
+animation = &"idle_walk2"
+autoplay = "idle_walk2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 65)
+shape = SubResource("RectangleShape2D_ehhk3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(25, 19.5)
+shape = SubResource("RectangleShape2D_mt4e1")
+
+[node name="jumpsound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_x3sgo")
