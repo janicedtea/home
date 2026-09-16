@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://cva6m6jpx1b3x"]
+[gd_scene load_steps=9 format=4 uid="uid://cva6m6jpx1b3x"]
 
 [ext_resource type="Texture2D" uid="uid://c5qvpemwtcs1d" path="res://background.png" id="1_oi3di"]
-[ext_resource type="Texture2D" uid="uid://bye2rrn3omko0" path="res://player_spritesheet-3.png (3).png" id="2_oi3di"]
+[ext_resource type="Texture2D" uid="uid://bye2rrn3omko0" path="res://tile.png" id="2_oi3di"]
 [ext_resource type="PackedScene" uid="uid://b4g2x6vaaa0df" path="res://player_1.tscn" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://nxhlverok7xx" path="res://enemy.tscn" id="4_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://cqwnn6ky7b7t7" path="res://player_2.tscn" id="5_f2txt"]
+[ext_resource type="PackedScene" uid="uid://t5tuvir17biv" path="res://coin.tscn" id="6_1ainy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2txt"]
 texture = ExtResource("2_oi3di")
@@ -39,3 +40,11 @@ position = Vector2(175, 433)
 
 [node name="enemy1" parent="enemies" instance=ExtResource("4_0b4ue")]
 position = Vector2(310, 620)
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource("6_1ainy")]
+position = Vector2(656, 62)
+
+[node name="coin2" parent="coins" instance=ExtResource("6_1ainy")]
+position = Vector2(646, 207)

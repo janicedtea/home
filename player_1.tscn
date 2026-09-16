@@ -1,9 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4g2x6vaaa0df"]
+[gd_scene load_steps=17 format=3 uid="uid://b4g2x6vaaa0df"]
 
 [ext_resource type="Script" uid="uid://dqlakvr8lqheu" path="res://player_1.gd" id="1_qh3su"]
-[ext_resource type="Texture2D" uid="uid://c3l4htpm630q8" path="res://player_spritesheet.png" id="2_buxg0"]
+[ext_resource type="Texture2D" uid="uid://ceqr57ewr54si" path="res://dead.png" id="2_6736r"]
+[ext_resource type="Texture2D" uid="uid://c3l4htpm630q8" path="res://idlewalk.png" id="2_buxg0"]
 [ext_resource type="Texture2D" uid="uid://cuolnjy7d6jff" path="res://jump.png" id="3_6736r"]
 [ext_resource type="AudioStream" uid="uid://brqce6q4ej2rw" path="res://jumpsound.mp3" id="4_buxg0"]
+[ext_resource type="AudioStream" uid="uid://c5ljyomijvuhw" path="res://dead.mp3" id="6_i66ns"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6736r"]
+atlas = ExtResource("2_6736r")
+region = Rect2(0, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i66ns"]
 atlas = ExtResource("2_buxg0")
@@ -31,6 +37,14 @@ region = Rect2(200, 200, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ugj0w"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6736r")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i66ns")
@@ -86,3 +100,6 @@ shape = SubResource("RectangleShape2D_buxg0")
 
 [node name="jumpsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_buxg0")
+
+[node name="deathsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_i66ns")

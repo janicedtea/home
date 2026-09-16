@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cl2nt0b2ldj5a" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cva6m6jpx1b3x" path="res://level.tscn" id="2_0xm2m"]
-[ext_resource type="AudioStream" uid="uid://cfek7bnfh8wrg" path="res://wii_sports_theme (1).mp3" id="2_h2yge"]
+[ext_resource type="AudioStream" uid="uid://cfek7bnfh8wrg" path="res://music.mp3" id="2_h2yge"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_h2yge")
@@ -11,3 +11,33 @@ script = ExtResource("1_h2yge")
 stream = ExtResource("2_h2yge")
 
 [node name="level" parent="." instance=ExtResource("2_0xm2m")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="score1" type="Panel" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 166.0
+offset_bottom = 56.0
+
+[node name="score1label" type="Label" parent="CanvasLayer/score1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Player 1 Score: "
+
+[node name="score2" type="Panel" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 56.0
+grow_horizontal = 0
+
+[node name="score2label" type="Label" parent="CanvasLayer/score2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Player 2 Score: "

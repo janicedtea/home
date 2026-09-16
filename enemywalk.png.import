@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bye2rrn3omko0"
-path="res://.godot/imported/tile.png-b6edd167b3cc7ec58612b18f9a6dce92.ctex"
+uid="uid://dgwfipo0ub0qr"
+path="res://.godot/imported/enemywalk.png-8bbcf7018a75a3199333d270d6d31c17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tile.png"
-dest_files=["res://.godot/imported/tile.png-b6edd167b3cc7ec58612b18f9a6dce92.ctex"]
+source_file="res://enemywalk.png"
+dest_files=["res://.godot/imported/enemywalk.png-8bbcf7018a75a3199333d270d6d31c17.ctex"]
 
 [params]
 

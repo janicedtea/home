@@ -21,5 +21,5 @@ func _on_timer_timeout() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "player1" or body.name == "player2":
+	if body.name == "player1" and body.alive or body.name == "player2" and body.alive:
 		emit_signal("player_died", body)
