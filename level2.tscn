@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=4 uid="uid://b07blu30g11rq"]
+
+[ext_resource type="Texture2D" uid="uid://c5qvpemwtcs1d" path="res://background.png" id="1_8i3m3"]
+[ext_resource type="Texture2D" uid="uid://bye2rrn3omko0" path="res://tile.png" id="2_rmy57"]
+[ext_resource type="PackedScene" uid="uid://b4g2x6vaaa0df" path="res://player_1.tscn" id="3_qulpo"]
+[ext_resource type="PackedScene" uid="uid://cqwnn6ky7b7t7" path="res://player_2.tscn" id="4_jifot"]
+[ext_resource type="PackedScene" uid="uid://nxhlverok7xx" path="res://enemy.tscn" id="5_3opl0"]
+[ext_resource type="PackedScene" uid="uid://t5tuvir17biv" path="res://coin.tscn" id="6_dc5vx"]
+[ext_resource type="Texture2D" uid="uid://d2lmnay1afv6w" path="res://flag.png" id="7_s8oj7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2txt"]
+texture = ExtResource("2_rmy57")
+texture_region_size = Vector2i(18, 18)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.712372, -8.45336, 9.3526535, -8.813077, 8.992937, 9.172796, -9.172795, 8.992937)
+
+[sub_resource type="TileSet" id="TileSet_oi3di"]
+physics_layer_0/collision_layer = 1
+sources/3 = SubResource("TileSetAtlasSource_f2txt")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6hdu"]
+size = Vector2(180.72339, 269.87946)
+
+[node name="level" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1284.0
+offset_bottom = 721.0
+texture = ExtResource("1_8i3m3")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAAAA4AAwAAAAAAAAABAA4AAwAAAAAAAAACAA4AAwAAAAAAAAADAA4AAwAAAAAAAAAEAA4AAwAAAAAAAAAFAA4AAwAAAAAAAAAGAA4AAwAAAAAAAAAHAA4AAwAAAAAAAAAIAA4AAwAAAAAAAAAJAA4AAwAAAAAAAAAKAA4AAwAAAAAAAAALAA4AAwAAAAAAAAAMAA4AAwAAAAAAAAANAA4AAwAAAAAAAAACAA0AAwAAAAAAAAAFAAsAAwAAAAAAAAAJAAoAAwAAAAAAAAANAAkAAwAAAAAAAAARAAgAAwAAAAAAAAAWAAcAAwAAAAAAAAAbAAAAAwAAAAAAAAAbAAEAAwAAAAAAAAAbAAIAAwAAAAAAAAAbAAMAAwAAAAAAAAAbAAQAAwAAAAAAAAAbAAUAAwAAAAAAAAAbAAYAAwAAAAAAAAAbAAcAAwAAAAAAAAAbAAgAAwAAAAAAAAAbAAkAAwAAAAAAAAAbAAoAAwAAAAAAAAAbAAsAAwAAAAAAAAAbAAwAAwAAAAAAAAAbAA0AAwAAAAAAAAAbAA4AAwAAAAAAAAAbAA8AAwAAAAAAAAA=")
+tile_set = SubResource("TileSet_oi3di")
+
+[node name="player1" parent="." instance=ExtResource("3_qulpo")]
+position = Vector2(48, 561)
+
+[node name="player2" parent="." instance=ExtResource("4_jifot")]
+position = Vector2(258, 441)
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy1" parent="enemies" instance=ExtResource("5_3opl0")]
+position = Vector2(310, 620)
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource("6_dc5vx")]
+position = Vector2(1079, 304)
+
+[node name="coin2" parent="coins" instance=ExtResource("6_dc5vx")]
+position = Vector2(644, 643)
+
+[node name="flag" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1237, 282.00003)
+scale = Vector2(0.415, 0.415)
+texture = ExtResource("7_s8oj7")
+metadata/_edit_group_ = true
+
+[node name="exit" type="Area2D" parent="flag"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flag/exit"]
+position = Vector2(-1.2041016, -7.228882)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_n6hdu")

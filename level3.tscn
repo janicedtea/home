@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=4 uid="uid://dwf5fqq0orkyg"]
+
+[ext_resource type="Texture2D" uid="uid://c5qvpemwtcs1d" path="res://background.png" id="1_bmsap"]
+[ext_resource type="Texture2D" uid="uid://bye2rrn3omko0" path="res://tile.png" id="2_rqrji"]
+[ext_resource type="PackedScene" uid="uid://b4g2x6vaaa0df" path="res://player_1.tscn" id="3_8x87a"]
+[ext_resource type="PackedScene" uid="uid://cqwnn6ky7b7t7" path="res://player_2.tscn" id="4_ci4mn"]
+[ext_resource type="PackedScene" uid="uid://t5tuvir17biv" path="res://coin.tscn" id="6_ymh28"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2txt"]
+texture = ExtResource("2_rqrji")
+texture_region_size = Vector2i(18, 18)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.712372, -8.45336, 9.3526535, -8.813077, 8.992937, 9.172796, -9.172795, 8.992937)
+
+[sub_resource type="TileSet" id="TileSet_oi3di"]
+physics_layer_0/collision_layer = 1
+sources/3 = SubResource("TileSetAtlasSource_f2txt")
+
+[node name="level" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1284.0
+offset_bottom = 721.0
+texture = ExtResource("1_bmsap")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAAAA4AAwAAAAAAAAABAA4AAwAAAAAAAAACAA4AAwAAAAAAAAADAA4AAwAAAAAAAAAEAA4AAwAAAAAAAAAFAA4AAwAAAAAAAAAGAA4AAwAAAAAAAAAHAA4AAwAAAAAAAAAIAA4AAwAAAAAAAAAJAA4AAwAAAAAAAAAKAA4AAwAAAAAAAAALAA4AAwAAAAAAAAAMAA4AAwAAAAAAAAANAA4AAwAAAAAAAAAOAA4AAwAAAAAAAAAPAA4AAwAAAAAAAAAQAA4AAwAAAAAAAAARAA4AAwAAAAAAAAASAA4AAwAAAAAAAAATAA4AAwAAAAAAAAAUAA4AAwAAAAAAAAAVAA4AAwAAAAAAAAAWAA4AAwAAAAAAAAAXAA4AAwAAAAAAAAAYAA4AAwAAAAAAAAAZAA4AAwAAAAAAAAAaAA4AAwAAAAAAAAAbAA4AAwAAAAAAAAAbAA0AAwAAAAAAAAAbAAwAAwAAAAAAAAAbAAsAAwAAAAAAAAAbAAoAAwAAAAAAAAAbAAkAAwAAAAAAAAAbAAgAAwAAAAAAAAAbAAcAAwAAAAAAAAAbAAYAAwAAAAAAAAAbAAUAAwAAAAAAAAD//w4AAwAAAAAAAAD+/w4AAwAAAAAAAAD+/wUAAwAAAAAAAAD+/wYAAwAAAAAAAAD+/wcAAwAAAAAAAAD+/wgAAwAAAAAAAAD+/wkAAwAAAAAAAAD+/woAAwAAAAAAAAD+/wsAAwAAAAAAAAD+/wwAAwAAAAAAAAD+/w0AAwAAAAAAAAA=")
+tile_set = SubResource("TileSet_oi3di")
+
+[node name="player1" parent="." instance=ExtResource("3_8x87a")]
+position = Vector2(48, 561)
+
+[node name="player2" parent="." instance=ExtResource("4_ci4mn")]
+position = Vector2(258, 441)
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource("6_ymh28")]
+position = Vector2(1096, 527)
+
+[node name="coin2" parent="coins" instance=ExtResource("6_ymh28")]
+position = Vector2(1235, 636)
+
+[node name="ending text" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 558.0
+offset_top = 212.0
+offset_right = 728.0
+offset_bottom = 235.0
+grow_horizontal = 2
+text = "You beat the game! :D
+Whether you won, lost, or tied, the real game is the memories we made along the way :)"
+horizontal_alignment = 1
